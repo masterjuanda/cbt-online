@@ -1,11 +1,11 @@
 <?php
 $currentPage = basename($_SERVER['PHP_SELF']);
 $adminNavigation = [
-  ['file' => 'index.php', 'label' => 'Dashboard', 'icon' => 'bi-grid-fill'],
-  ['file' => 'ujian.php', 'label' => 'Paket Ujian', 'icon' => 'bi-journal-check'],
-  ['file' => 'soal.php', 'label' => 'Bank Soal', 'icon' => 'bi-question-circle'],
-  ['file' => 'siswa.php', 'label' => 'Data Siswa', 'icon' => 'bi-people'],
-  ['file' => 'nilai.php', 'label' => 'Rekap Nilai', 'icon' => 'bi-trophy'],
+  ['file' => 'index.php', 'label' => 'Dashboard', 'icon' => 'bi-grid-1x2-fill'],
+  ['file' => 'ujian.php', 'label' => 'Paket Ujian', 'icon' => 'bi-clipboard2-check-fill'],
+  ['file' => 'soal.php', 'label' => 'Bank Soal', 'icon' => 'bi-journal-richtext'],
+  ['file' => 'siswa.php', 'label' => 'Data Siswa', 'icon' => 'bi-people-fill'],
+  ['file' => 'nilai.php', 'label' => 'Rekap Nilai', 'icon' => 'bi-bar-chart-line-fill'],
 ];
 ?>
 <header class="admin-mobile-header no-print">
@@ -40,13 +40,15 @@ $adminNavigation = [
     <?php endforeach; ?>
   </ul>
   <div class="admin-sidebar-footer">
-    <button type="button" class="admin-theme-button" data-theme-toggle aria-label="Ganti tema">
-      <i data-theme-icon class="bi bi-moon-stars-fill"></i><span>Tema tampilan</span>
-    </button>
     <div class="admin-user-card">
       <span class="admin-user-avatar"><i class="bi bi-person-fill"></i></span>
       <span class="admin-user-details"><strong><?= htmlspecialchars($_SESSION['nama_lengkap'] ?? 'Administrator') ?></strong><small>Administrator</small></span>
     </div>
+    <button type="button" class="admin-theme-button" data-theme-toggle aria-label="Ganti tema">
+      <span class="admin-theme-icon"><i data-theme-icon class="bi bi-moon-stars-fill"></i></span>
+      <span class="admin-theme-copy"><strong>Tema tampilan</strong><small>Ubah mode terang atau gelap</small></span>
+      <span class="admin-theme-action" aria-hidden="true"><i class="bi bi-arrow-repeat"></i></span>
+    </button>
     <button type="button" class="admin-logout-button" data-bs-toggle="modal" data-bs-target="#modalKonfirmasiLogout">
       <i class="bi bi-box-arrow-right"></i><span>Keluar Sistem</span>
     </button>
@@ -73,13 +75,15 @@ $adminNavigation = [
       <?php endforeach; ?>
     </ul>
     <div class="admin-sidebar-footer">
-      <button type="button" class="admin-theme-button" data-theme-toggle aria-label="Ganti tema">
-        <i data-theme-icon class="bi bi-moon-stars-fill"></i><span>Tema tampilan</span>
-      </button>
       <div class="admin-user-card">
         <span class="admin-user-avatar"><i class="bi bi-person-fill"></i></span>
         <span class="admin-user-details"><strong><?= htmlspecialchars($_SESSION['nama_lengkap'] ?? 'Administrator') ?></strong><small>Administrator</small></span>
       </div>
+      <button type="button" class="admin-theme-button" data-theme-toggle aria-label="Ganti tema">
+        <span class="admin-theme-icon"><i data-theme-icon class="bi bi-moon-stars-fill"></i></span>
+        <span class="admin-theme-copy"><strong>Tema tampilan</strong><small>Ubah mode terang atau gelap</small></span>
+        <span class="admin-theme-action" aria-hidden="true"><i class="bi bi-arrow-repeat"></i></span>
+      </button>
       <button type="button" class="admin-logout-button" data-bs-toggle="modal" data-bs-target="#modalKonfirmasiLogout" data-bs-dismiss="offcanvas">
         <i class="bi bi-box-arrow-right"></i><span>Keluar Sistem</span>
       </button>

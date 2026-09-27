@@ -74,7 +74,7 @@ $total_ikut  = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) AS tot
       font-size: 1.5rem;
     }
   </style>
-  <link rel="stylesheet" href="../assets/css/admin-responsive.css?v=3">
+  <link rel="stylesheet" href="../assets/css/admin-responsive.css?v=5">
   <link rel="stylesheet" href="../assets/css/theme.css?v=4">
 </head>
 

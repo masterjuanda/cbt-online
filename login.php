@@ -327,40 +327,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       box-shadow: 0 12px 24px rgba(53, 99, 246, .3);
     }
 
-    .credentials {
-      margin-top: 26px;
-      padding: 16px;
-      border: 1px solid #e8edf6;
-      border-radius: 13px;
-      background: #f8faff;
-    }
-
-    .credentials-title {
-      margin-bottom: 10px;
-      color: #7b8598;
-      font-size: .7rem;
-      font-weight: 700;
-      letter-spacing: .04em;
-      text-transform: uppercase;
-    }
-
-    .credential-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      color: #515d72;
-      font-size: .72rem;
-    }
-
-    .credential-row+.credential-row {
-      margin-top: 7px;
-    }
-
-    .credential-row strong {
-      color: #303c52;
-      font-weight: 600;
-    }
-
     @media (max-width: 767.98px) {
       body {
         padding: 18px 14px;
@@ -491,11 +457,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           </button>
         </form>
 
-        <div class="credentials">
-          <div class="credentials-title"><i class="bi bi-info-circle me-1"></i> Akun login pengujian</div>
-          <div class="credential-row"><span>Administrator</span><strong>admin / admin123</strong></div>
-          <div class="credential-row"><span>Siswa</span><strong>siswa01 / siswa123</strong></div>
-        </div>
       </div>
     </section>
   </main>

@@ -22,6 +22,7 @@ $query_ujian = mysqli_query($koneksi, "
     WHERE e.status = 'aktif'
     ORDER BY e.id DESC
 ");
+$jumlah_ujian_aktif = mysqli_num_rows($query_ujian);
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -42,7 +43,149 @@ $query_ujian = mysqli_query($koneksi, "
     }
 
     .navbar-custom {
+      position: relative;
+      z-index: 1030;
       background: #0f172a;
+    }
+
+    .student-account-toggle {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      border: 1px solid rgba(148, 163, 184, 0.28);
+      border-radius: 14px;
+      background: rgba(148, 163, 184, 0.1);
+      color: #dbeafe;
+      font-size: 1.1rem;
+      transition: background-color 160ms ease, transform 160ms ease;
+    }
+
+    .student-account-toggle:hover,
+    .student-account-toggle[aria-expanded="true"] {
+      transform: translateY(-1px);
+      background: rgba(59, 130, 246, 0.26);
+      color: #fff;
+    }
+
+    .student-account-menu {
+      right: 0;
+      left: auto;
+      min-width: 220px;
+      margin-top: 0 !important;
+      padding: 0.55rem;
+      border: 1px solid var(--app-border);
+      border-radius: 1rem;
+      box-shadow: 0 16px 38px rgba(15, 23, 42, 0.18);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+
+      .dropdown:hover>.student-account-menu,
+      .dropdown:focus-within>.student-account-menu {
+        display: block;
+      }
+    }
+
+    .welcome-panel {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      padding: clamp(1.5rem, 4vw, 2.4rem);
+      border: 1px solid rgba(148, 181, 255, 0.22);
+      border-radius: 1.5rem;
+      background: linear-gradient(115deg, #132346 0%, #1c3c78 62%, #2856a2 100%);
+      box-shadow: 0 20px 46px rgba(22, 54, 112, 0.2);
+      color: #fff;
+    }
+
+    .welcome-panel::after {
+      position: absolute;
+      z-index: -1;
+      top: -7rem;
+      right: -3rem;
+      width: 20rem;
+      height: 20rem;
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      border-radius: 50%;
+      box-shadow: 0 0 0 2rem rgba(255, 255, 255, 0.035), 0 0 0 4rem rgba(255, 255, 255, 0.025);
+      content: "";
+      pointer-events: none;
+    }
+
+    .welcome-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      margin-bottom: 1rem;
+      padding: 0.4rem 0.75rem;
+      border: 1px solid rgba(191, 219, 254, 0.2);
+      border-radius: 999px;
+      background: rgba(9, 22, 49, 0.35);
+      color: #bfdbfe;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .welcome-panel h1 {
+      max-width: 680px;
+      font-size: clamp(1.7rem, 4vw, 2.55rem);
+      font-weight: 700;
+      letter-spacing: -0.055em;
+    }
+
+    .welcome-panel p {
+      max-width: 650px;
+      margin-bottom: 0;
+      color: #d3def2;
+      line-height: 1.7;
+    }
+
+    .welcome-stat {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      margin-top: 1.35rem;
+      padding: 0.65rem 0.85rem;
+      border: 1px solid rgba(191, 219, 254, 0.2);
+      border-radius: 0.9rem;
+      background: rgba(9, 22, 49, 0.28);
+      color: #eaf2ff;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    .welcome-art {
+      display: grid;
+      width: 118px;
+      height: 118px;
+      flex: 0 0 118px;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: 2rem;
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.07));
+      color: #dbeafe;
+      font-size: 3.1rem;
+      transform: rotate(5deg);
+    }
+
+    .dashboard-section-heading {
+      color: var(--app-text);
+    }
+
+    @media (max-width: 575.98px) {
+      .welcome-art {
+        display: none;
+      }
+
+      .navbar-custom .container {
+        gap: 0.5rem;
+      }
+
+      .navbar-brand {
+        font-size: 0.95rem;
+      }
     }
 
     .exam-card {
@@ -65,25 +208,48 @@ $query_ujian = mysqli_query($koneksi, "
   <nav class="navbar navbar-expand-lg navbar-dark navbar-custom px-3 py-3 mb-4 shadow-sm">
     <div class="container">
       <a class="navbar-brand fw-bold d-flex align-items-center" href="index.php">
-        <i class="bi bi-mortarboard-fill text-primary fs-4 me-2"></i> CBT Siswa
+        <span class="d-inline-flex align-items-center justify-content-center rounded-3 bg-primary text-white me-2" style="width: 38px; height: 38px;"><i class="bi bi-mortarboard-fill"></i></span> CBT Portal
       </a>
       <div class="d-flex align-items-center gap-3">
-        <span class="text-light small d-none d-sm-inline">
-          Halo, <strong><?= htmlspecialchars($_SESSION['nama_lengkap']) ?></strong> (<?= htmlspecialchars($_SESSION['username']) ?>)
-        </span>
-        <button type="button" class="btn btn-sm btn-outline-danger rounded-pill px-3" data-bs-toggle="modal" data-bs-target="#modalKonfirmasiLogout">Keluar</button>
         <!-- Tombol Toggle Dark Mode -->
         <button class="theme-toggle" type="button" data-theme-toggle aria-label="Ganti tema">
           <i data-theme-icon class="bi bi-moon-stars-fill"></i>
         </button>
+        <div class="dropdown">
+          <button class="student-account-toggle" type="button" id="studentAccountMenu" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Buka menu akun">
+            <i class="bi bi-person-fill" aria-hidden="true"></i>
+          </button>
+          <div class="dropdown-menu dropdown-menu-end student-account-menu" aria-labelledby="studentAccountMenu">
+            <div class="px-3 py-2">
+              <div class="fw-bold text-body small"><?= htmlspecialchars($_SESSION['nama_lengkap']) ?></div>
+              <div class="text-muted small">@<?= htmlspecialchars($_SESSION['username']) ?></div>
+            </div>
+            <hr class="dropdown-divider my-2">
+            <button type="button" class="dropdown-item rounded-2 text-danger" data-bs-toggle="modal" data-bs-target="#modalKonfirmasiLogout">
+              <i class="bi bi-box-arrow-right me-2"></i>Keluar / Logout
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </nav>
 
   <div class="container pb-5">
+    <section class="welcome-panel mb-4 mb-lg-5">
+      <div class="d-flex align-items-center justify-content-between gap-4">
+        <div>
+          <span class="welcome-eyebrow"><i class="bi bi-stars"></i> RUANG BELAJAR DIGITAL</span>
+          <h1 class="mb-2">Selamat datang kembali,<br><?= htmlspecialchars($_SESSION['nama_lengkap']) ?>!</h1>
+          <p>Siap mengasah kemampuan hari ini? Pilih ujian yang tersedia, siapkan token dari pengawas, lalu kerjakan dengan tenang.</p>
+          <span class="welcome-stat"><i class="bi bi-journal-check text-info"></i><?= $jumlah_ujian_aktif ?> paket ujian aktif tersedia</span>
+        </div>
+        <div class="welcome-art" aria-hidden="true"><i class="bi bi-mortarboard-fill"></i></div>
+      </div>
+    </section>
+
     <div class="mb-4">
-      <h4 class="fw-bold mb-1">Daftar Ujian Tersedia</h4>
-      <p class="text-muted small">Pilih paket ujian di bawah ini dan masukkan token ujian dari pengawas untuk memulai.</p>
+      <h4 class="dashboard-section-heading fw-bold mb-1">Jelajahi Paket Ujian</h4>
+      <p class="text-muted small mb-0">Pilih ujian yang dijadwalkan untuk Anda dan pastikan koneksi internet stabil.</p>
     </div>
 
     <div class="row g-4">
@@ -118,7 +284,7 @@ $query_ujian = mysqli_query($koneksi, "
                     <span class="fw-bold text-primary fs-5"><?= $u['total_nilai'] ?></span>
                   </div>
                 <?php else: ?>
-                  <a href="konfirmasi.php?exam_id=<?= $u['id'] ?>" class="btn btn-primary w-100 rounded-3 fw-semibold">
+                  <a href="petunjuk.php?exam_id=<?= $u['id'] ?>" class="btn btn-primary w-100 rounded-3 fw-semibold">
                     <?= ($u['status_siswa'] === 'mengerjakan') ? 'Lanjutkan Ujian' : 'Mulai Ujian' ?> <i class="bi bi-arrow-right-short fs-5 align-middle"></i>
                   </a>
                 <?php endif; ?>
