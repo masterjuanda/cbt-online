@@ -39,6 +39,7 @@ if ($exam_id > 0) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rekap Nilai - CBT Online</title>
+  <script src="../assets/js/dark-mode.js?v=2"></script>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -92,7 +93,8 @@ if ($exam_id > 0) {
       }
     }
   </style>
-  <link rel="stylesheet" href="../assets/css/admin-responsive.css?v=2">
+  <link rel="stylesheet" href="../assets/css/admin-responsive.css?v=3">
+  <link rel="stylesheet" href="../assets/css/theme.css?v=4">
 </head>
 
 <body>

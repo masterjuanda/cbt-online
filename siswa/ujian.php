@@ -81,6 +81,7 @@ $soal_list = mysqli_query($koneksi, "SELECT * FROM questions WHERE exam_id = $ex
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lembar Ujian - <?= htmlspecialchars($sesi['judul_ujian']) ?></title>
+  <script src="../assets/js/dark-mode.js?v=2"></script>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -136,6 +137,7 @@ $soal_list = mysqli_query($koneksi, "SELECT * FROM questions WHERE exam_id = $ex
       }
     }
   </style>
+  <link rel="stylesheet" href="../assets/css/theme.css?v=4">
 </head>
 
 <body>
@@ -148,9 +150,14 @@ $soal_list = mysqli_query($koneksi, "SELECT * FROM questions WHERE exam_id = $ex
           <h5 class="fw-bold mb-0 text-white"><?= htmlspecialchars($sesi['judul_ujian']) ?></h5>
           <small class="text-secondary">Peserta: <?= htmlspecialchars($_SESSION['nama_lengkap']) ?></small>
         </div>
-        <div class="text-end">
-          <small class="text-secondary d-block fw-semibold">SISA WAKTU</small>
-          <span id="countdown" class="fs-4 fw-bold text-warning font-monospace">--:--:--</span>
+        <div class="d-flex align-items-center gap-3">
+          <button type="button" class="theme-toggle" data-theme-toggle aria-label="Ganti tema">
+            <i data-theme-icon class="bi bi-moon-stars-fill"></i>
+          </button>
+          <div class="text-end">
+            <small class="text-secondary d-block fw-semibold">SISA WAKTU</small>
+            <span id="countdown" class="fs-4 fw-bold text-warning font-monospace">--:--:--</span>
+          </div>
         </div>
       </div>
     </div>

@@ -30,6 +30,7 @@ $query_ujian = mysqli_query($koneksi, "
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portal Siswa - CBT Online</title>
+  <script src="../assets/js/dark-mode.js?v=2"></script>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -55,6 +56,7 @@ $query_ujian = mysqli_query($koneksi, "
       box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.1);
     }
   </style>
+  <link rel="stylesheet" href="../assets/css/theme.css?v=4">
 </head>
 
 <body>
@@ -70,6 +72,10 @@ $query_ujian = mysqli_query($koneksi, "
           Halo, <strong><?= htmlspecialchars($_SESSION['nama_lengkap']) ?></strong> (<?= htmlspecialchars($_SESSION['username']) ?>)
         </span>
         <button type="button" class="btn btn-sm btn-outline-danger rounded-pill px-3" data-bs-toggle="modal" data-bs-target="#modalKonfirmasiLogout">Keluar</button>
+        <!-- Tombol Toggle Dark Mode -->
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Ganti tema">
+          <i data-theme-icon class="bi bi-moon-stars-fill"></i>
+        </button>
       </div>
     </div>
   </nav>

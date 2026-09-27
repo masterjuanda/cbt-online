@@ -88,6 +88,7 @@ if ($exam_id > 0) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bank Soal - CBT Online</title>
+  <script src="../assets/js/dark-mode.js?v=2"></script>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -140,7 +141,8 @@ if ($exam_id > 0) {
       color: #15803d;
     }
   </style>
-  <link rel="stylesheet" href="../assets/css/admin-responsive.css?v=2">
+  <link rel="stylesheet" href="../assets/css/admin-responsive.css?v=3">
+  <link rel="stylesheet" href="../assets/css/theme.css?v=4">
 </head>
 
 <body>
@@ -207,7 +209,7 @@ if ($exam_id > 0) {
                 <div class="d-flex gap-1">
                   <!-- Tombol Edit Soal -->
                   <button type="button"
-                    class="btn btn-sm btn-outline-warning rounded-2 btn-edit-soal"
+                    class="action-icon-btn action-icon-btn--edit btn-edit-soal"
                     data-id="<?= $s['id'] ?>"
                     data-pertanyaan="<?= htmlspecialchars($s['pertanyaan']) ?>"
                     data-a="<?= htmlspecialchars($s['opsi_a']) ?>"
@@ -218,20 +220,22 @@ if ($exam_id > 0) {
                     data-kunci="<?= $s['kunci_jawaban'] ?>"
                     data-bs-toggle="modal"
                     data-bs-target="#modalEditSoal"
+                    aria-label="Edit pertanyaan"
                     title="Ubah Soal">
-                    <i class="bi bi-pencil-square"></i>
+                    <i class="bi bi-pencil"></i>
                   </button>
 
                   <!-- Tombol Hapus Soal -->
                   <button type="button"
-                    class="btn btn-sm btn-outline-danger rounded-2 btn-hapus-soal"
+                    class="action-icon-btn action-icon-btn--delete btn-hapus-soal"
                     data-id="<?= $s['id'] ?>"
                     data-nomor="<?= $no - 1 ?>"
                     data-pertanyaan="<?= htmlspecialchars(mb_strimwidth($s['pertanyaan'], 0, 70, '...')) ?>"
                     data-bs-toggle="modal"
                     data-bs-target="#modalHapusSoal"
+                    aria-label="Hapus pertanyaan"
                     title="Hapus Soal">
-                    <i class="bi bi-trash"></i>
+                    <i class="bi bi-trash3"></i>
                   </button>
                 </div>
               </div>

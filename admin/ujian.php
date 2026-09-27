@@ -41,6 +41,7 @@ $list_ujian = mysqli_query($koneksi, "SELECT e.*, (SELECT COUNT(*) FROM question
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Paket Ujian - CBT Online</title>
+  <script src="../assets/js/dark-mode.js?v=2"></script>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -77,7 +78,8 @@ $list_ujian = mysqli_query($koneksi, "SELECT e.*, (SELECT COUNT(*) FROM question
       margin-right: 0.75rem;
     }
   </style>
-  <link rel="stylesheet" href="../assets/css/admin-responsive.css?v=2">
+  <link rel="stylesheet" href="../assets/css/admin-responsive.css?v=3">
+  <link rel="stylesheet" href="../assets/css/theme.css?v=4">
 </head>
 
 <body>
@@ -136,13 +138,14 @@ $list_ujian = mysqli_query($koneksi, "SELECT e.*, (SELECT COUNT(*) FROM question
                         <i class="bi bi-list-task"></i> Soal
                       </a>
                       <button type="button"
-                        class="btn btn-sm btn-outline-danger rounded-2 btn-hapus-ujian"
+                        class="action-icon-btn action-icon-btn--delete btn-hapus-ujian"
                         data-id="<?= $u['id'] ?>"
                         data-judul="<?= htmlspecialchars($u['judul_ujian']) ?>"
                         data-bs-toggle="modal"
                         data-bs-target="#modalKonfirmasiHapus"
-                        title="Hapus Ujian">
-                        <i class="bi bi-trash"></i>
+                        title="Hapus Ujian"
+                        aria-label="Hapus ujian">
+                        <i class="bi bi-trash3"></i>
                       </button>
                     </td>
                   </tr>

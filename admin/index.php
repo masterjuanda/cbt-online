@@ -22,6 +22,7 @@ $total_ikut  = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) AS tot
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard Admin - CBT Online</title>
+  <script src="../assets/js/dark-mode.js?v=2"></script>
   <!-- Fonts & Bootstrap 5 -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -63,18 +64,6 @@ $total_ikut  = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) AS tot
       margin-right: 0.75rem;
     }
 
-    .stat-card {
-      border: none;
-      border-radius: 1rem;
-      background: #ffffff;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
-      transition: transform 0.2s ease;
-    }
-
-    .stat-card:hover {
-      transform: translateY(-3px);
-    }
-
     .stat-icon {
       width: 50px;
       height: 50px;
@@ -85,7 +74,8 @@ $total_ikut  = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) AS tot
       font-size: 1.5rem;
     }
   </style>
-  <link rel="stylesheet" href="../assets/css/admin-responsive.css?v=2">
+  <link rel="stylesheet" href="../assets/css/admin-responsive.css?v=3">
+  <link rel="stylesheet" href="../assets/css/theme.css?v=4">
 </head>
 
 <body>
@@ -107,11 +97,11 @@ $total_ikut  = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) AS tot
       </div>
 
       <!-- 4 Grid Stat Cards -->
-      <div class="row g-3 mb-4">
+      <div class="row g-3 mb-4" id="dashboardStats">
         <div class="col-sm-6 col-xl-3">
-          <div class="card stat-card p-3">
+          <div class="card stat-card stat-card--exams p-3">
             <div class="d-flex align-items-center">
-              <div class="stat-icon bg-primary bg-opacity-10 text-primary me-3">
+              <div class="stat-icon me-3">
                 <i class="bi bi-journal-bookmark-fill"></i>
               </div>
               <div>
@@ -123,9 +113,9 @@ $total_ikut  = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) AS tot
         </div>
 
         <div class="col-sm-6 col-xl-3">
-          <div class="card stat-card p-3">
+          <div class="card stat-card stat-card--questions p-3">
             <div class="d-flex align-items-center">
-              <div class="stat-icon bg-success bg-opacity-10 text-success me-3">
+              <div class="stat-icon me-3">
                 <i class="bi bi-question-square-fill"></i>
               </div>
               <div>
@@ -137,9 +127,9 @@ $total_ikut  = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) AS tot
         </div>
 
         <div class="col-sm-6 col-xl-3">
-          <div class="card stat-card p-3">
+          <div class="card stat-card stat-card--students p-3">
             <div class="d-flex align-items-center">
-              <div class="stat-icon bg-warning bg-opacity-10 text-warning me-3">
+              <div class="stat-icon me-3">
                 <i class="bi bi-people-fill"></i>
               </div>
               <div>
@@ -151,9 +141,9 @@ $total_ikut  = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) AS tot
         </div>
 
         <div class="col-sm-6 col-xl-3">
-          <div class="card stat-card p-3">
+          <div class="card stat-card stat-card--completed p-3">
             <div class="d-flex align-items-center">
-              <div class="stat-icon bg-info bg-opacity-10 text-info me-3">
+              <div class="stat-icon me-3">
                 <i class="bi bi-check2-circle"></i>
               </div>
               <div>
@@ -171,21 +161,21 @@ $total_ikut  = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) AS tot
         <p class="text-muted small">Ikuti langkah berurutan di bawah ini untuk memulai proses evaluasi:</p>
         <div class="row g-3">
           <div class="col-md-4">
-            <div class="border rounded-3 p-3 h-100">
+            <div class="dashboard-guide-card border rounded-3 p-3 h-100">
               <div class="fw-bold text-dark mb-1">1. Buat Paket Ujian</div>
               <p class="text-muted small mb-2">Tentukan judul mata pelajaran, durasi waktu, serta token ujian.</p>
               <a href="ujian.php" class="btn btn-sm btn-outline-primary rounded-2">Buka Paket Ujian</a>
             </div>
           </div>
           <div class="col-md-4">
-            <div class="border rounded-3 p-3 h-100">
+            <div class="dashboard-guide-card border rounded-3 p-3 h-100">
               <div class="fw-bold text-dark mb-1">2. Tambahkan Bank Soal</div>
               <p class="text-muted small mb-2">Masukkan butir soal pilihan ganda A-E dan tetapkan kunci jawaban.</p>
               <a href="soal.php" class="btn btn-sm btn-outline-primary rounded-2">Kelola Soal</a>
             </div>
           </div>
           <div class="col-md-4">
-            <div class="border rounded-3 p-3 h-100">
+            <div class="dashboard-guide-card border rounded-3 p-3 h-100">
               <div class="fw-bold text-dark mb-1">3. Lihat Rekap Nilai</div>
               <p class="text-muted small mb-2">Pantau hasil pengerjaan siswa dan cetak/ekspor lembar evaluasi.</p>
               <a href="nilai.php" class="btn btn-sm btn-outline-primary rounded-2">Lihat Nilai</a>

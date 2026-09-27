@@ -72,6 +72,7 @@ $list_siswa = mysqli_query($koneksi, "SELECT * FROM users WHERE role = 'siswa' O
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Data Siswa - CBT Online</title>
+  <script src="../assets/js/dark-mode.js?v=2"></script>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -108,7 +109,8 @@ $list_siswa = mysqli_query($koneksi, "SELECT * FROM users WHERE role = 'siswa' O
       margin-right: 0.75rem;
     }
   </style>
-  <link rel="stylesheet" href="../assets/css/admin-responsive.css?v=2">
+  <link rel="stylesheet" href="../assets/css/admin-responsive.css?v=3">
+  <link rel="stylesheet" href="../assets/css/theme.css?v=4">
 </head>
 
 <body>
@@ -166,7 +168,7 @@ $list_siswa = mysqli_query($koneksi, "SELECT * FROM users WHERE role = 'siswa' O
                     <td class="text-end pe-4">
                       <!-- Tombol Edit Siswa -->
                       <button type="button"
-                        class="btn btn-sm btn-outline-warning rounded-2 me-1 btn-edit-siswa"
+                        class="action-icon-btn action-icon-btn--edit btn-edit-siswa"
                         data-id="<?= $s['id'] ?>"
                         data-username="<?= htmlspecialchars($s['username']) ?>"
                         data-nama="<?= htmlspecialchars($s['nama_lengkap']) ?>"
@@ -174,12 +176,12 @@ $list_siswa = mysqli_query($koneksi, "SELECT * FROM users WHERE role = 'siswa' O
                         data-bs-target="#modalEditSiswa"
                         aria-label="Edit data siswa"
                         title="Ubah Data Siswa">
-                        <i class="bi bi-pencil-square"></i>
+                        <i class="bi bi-pencil"></i>
                       </button>
 
                       <!-- Tombol Hapus Siswa -->
                       <button type="button"
-                        class="btn btn-sm btn-outline-danger rounded-2 btn-hapus-siswa"
+                        class="action-icon-btn action-icon-btn--delete btn-hapus-siswa"
                         data-id="<?= $s['id'] ?>"
                         data-nama="<?= htmlspecialchars($s['nama_lengkap']) ?>"
                         data-username="<?= htmlspecialchars($s['username']) ?>"
@@ -187,7 +189,7 @@ $list_siswa = mysqli_query($koneksi, "SELECT * FROM users WHERE role = 'siswa' O
                         data-bs-target="#modalHapusSiswa"
                         aria-label="Hapus siswa"
                         title="Hapus Siswa">
-                        <i class="bi bi-trash"></i>
+                        <i class="bi bi-trash3"></i>
                       </button>
                     </td>
                   </tr>

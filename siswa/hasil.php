@@ -30,6 +30,7 @@ if (!$data) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hasil Evaluasi - CBT Online</title>
+  <script src="../assets/js/dark-mode.js?v=2"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -48,9 +49,14 @@ if (!$data) {
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     }
   </style>
+  <link rel="stylesheet" href="../assets/css/theme.css?v=4">
 </head>
 
 <body class="d-flex align-items-center justify-content-center" style="min-height: 100vh;">
+
+  <button type="button" class="theme-toggle page-theme-toggle" data-theme-toggle aria-label="Ganti tema">
+    <i data-theme-icon class="bi bi-moon-stars-fill"></i>
+  </button>
 
   <div class="container py-4">
     <div class="row justify-content-center">

@@ -47,6 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Masuk - CBT Online Modern</title>
+  <script src="assets/js/dark-mode.js?v=2"></script>
   <!-- Google Fonts & Bootstrap 5 -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -420,9 +421,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       }
     }
   </style>
+  <link rel="stylesheet" href="assets/css/theme.css?v=4">
 </head>
 
 <body>
+
+  <button type="button" class="theme-toggle page-theme-toggle" data-theme-toggle aria-label="Ganti tema">
+    <i data-theme-icon class="bi bi-moon-stars-fill"></i>
+  </button>
 
   <main class="login-shell">
     <section class="login-aside" aria-label="Informasi CBT Online">

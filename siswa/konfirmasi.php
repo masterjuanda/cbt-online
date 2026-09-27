@@ -50,6 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['mulai'])) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Konfirmasi Ujian - CBT Online</title>
+  <script src="../assets/js/dark-mode.js?v=2"></script>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -59,9 +60,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['mulai'])) {
       background-color: #f8fafc;
     }
   </style>
+  <link rel="stylesheet" href="../assets/css/theme.css?v=4">
 </head>
 
 <body class="d-flex align-items-center justify-content-center" style="min-height: 100vh;">
+
+  <button type="button" class="theme-toggle page-theme-toggle" data-theme-toggle aria-label="Ganti tema">
+    <i data-theme-icon class="bi bi-moon-stars-fill"></i>
+  </button>
 
   <div class="container py-4">
     <div class="row justify-content-center">

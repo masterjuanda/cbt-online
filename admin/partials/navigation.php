@@ -16,6 +16,9 @@ $adminNavigation = [
     <span class="admin-brand-icon"><i class="bi bi-mortarboard-fill"></i></span>
     <span><strong>CBT Portal</strong><small>Panel Administrator</small></span>
   </a>
+  <button type="button" class="theme-toggle admin-header-theme-toggle" data-theme-toggle aria-label="Ganti tema">
+    <i data-theme-icon class="bi bi-moon-stars-fill"></i>
+  </button>
   <span class="admin-user-avatar" title="<?= htmlspecialchars($_SESSION['nama_lengkap'] ?? 'Administrator') ?>">
     <?= htmlspecialchars(mb_strtoupper(mb_substr($_SESSION['nama_lengkap'] ?? 'A', 0, 1))) ?>
   </span>
@@ -37,6 +40,9 @@ $adminNavigation = [
     <?php endforeach; ?>
   </ul>
   <div class="admin-sidebar-footer">
+    <button type="button" class="admin-theme-button" data-theme-toggle aria-label="Ganti tema">
+      <i data-theme-icon class="bi bi-moon-stars-fill"></i><span>Tema tampilan</span>
+    </button>
     <div class="admin-user-card">
       <span class="admin-user-avatar"><i class="bi bi-person-fill"></i></span>
       <span class="admin-user-details"><strong><?= htmlspecialchars($_SESSION['nama_lengkap'] ?? 'Administrator') ?></strong><small>Administrator</small></span>
@@ -67,6 +73,9 @@ $adminNavigation = [
       <?php endforeach; ?>
     </ul>
     <div class="admin-sidebar-footer">
+      <button type="button" class="admin-theme-button" data-theme-toggle aria-label="Ganti tema">
+        <i data-theme-icon class="bi bi-moon-stars-fill"></i><span>Tema tampilan</span>
+      </button>
       <div class="admin-user-card">
         <span class="admin-user-avatar"><i class="bi bi-person-fill"></i></span>
         <span class="admin-user-details"><strong><?= htmlspecialchars($_SESSION['nama_lengkap'] ?? 'Administrator') ?></strong><small>Administrator</small></span>

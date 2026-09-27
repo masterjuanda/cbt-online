@@ -3,6 +3,12 @@ body {
   overflow-x: hidden;
 }
 
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  background-color: var(--bs-body-bg);
+  color: var(--bs-body-color);
+}
+
 .admin-sidebar {
   position: sticky;
   top: 0;
@@ -108,6 +114,33 @@ body {
   padding-top: 1rem;
   border-top: 1px solid rgba(148, 163, 184, 0.15);
 }
+.admin-theme-button {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.45rem;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 0.75rem;
+  background: rgba(148, 163, 184, 0.08);
+  color: #c4cee0;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-align: left;
+  transition:
+    background 0.18s ease,
+    color 0.18s ease;
+}
+.admin-theme-button:hover {
+  background: rgba(148, 163, 184, 0.16);
+  color: #fff;
+}
+.admin-theme-button i {
+  width: 18px;
+  color: #facc15;
+  text-align: center;
+}
 .admin-user-card {
   display: flex;
   align-items: center;
@@ -167,6 +200,12 @@ body {
 }
 .admin-mobile-header {
   display: none;
+}
+.admin-header-theme-toggle {
+  width: 38px;
+  height: 38px;
+  flex-basis: 38px;
+  border-radius: 12px;
 }
 .mobile-select-control {
   display: none;
@@ -260,6 +299,36 @@ body {
     border: 0;
     background: #eaf0ff;
     color: #3563f6;
+  }
+
+  [data-bs-theme="dark"] .admin-mobile-header {
+    border-bottom-color: #29364c;
+    background: rgba(17, 26, 41, 0.94);
+  }
+
+  [data-bs-theme="dark"] .admin-mobile-brand {
+    color: #e5eaf3;
+  }
+
+  [data-bs-theme="dark"] .admin-mobile-brand .admin-brand-icon {
+    border-color: #314363;
+    background: #1b2a43;
+    color: #9bb8ff;
+  }
+
+  [data-bs-theme="dark"] .admin-mobile-brand small {
+    color: #9aa8bd;
+  }
+
+  [data-bs-theme="dark"] .admin-mobile-header > .admin-user-avatar {
+    background: #1b2a43;
+    color: #a9c2ff;
+  }
+
+  .admin-header-theme-toggle {
+    width: 36px;
+    height: 36px;
+    flex-basis: 36px;
   }
 
   .admin-page-titlebar {
@@ -404,6 +473,9 @@ body {
   .admin-sidebar .nav-link,
   .admin-drawer .nav-link,
   .admin-logout-button {
+    transition: none;
+  }
+  .admin-theme-button {
     transition: none;
   }
 }
